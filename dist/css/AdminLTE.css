@@ -10,6 +10,8 @@
  * Core: General Layout Style
  * -------------------------
  */
+
+ .navbar-collapse
 html,
 body {
   min-height: 100%;
@@ -61,7 +63,7 @@ body {
   -moz-transition: -moz-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
   -o-transition: -o-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out;
-  margin-left: 230px;
+  margin-left: 0px;
   z-index: 820;
 }
 .layout-top-nav .content-wrapper,
@@ -80,7 +82,7 @@ body {
   .sidebar-collapse .content-wrapper,
   .sidebar-collapse .right-side,
   .sidebar-collapse .main-footer {
-    margin-left: 0;
+    margin-left: 0px;
   }
 }
 @media (max-width: 767px) {
@@ -165,9 +167,11 @@ h6,
 .h6 {
   font-family: 'Source Sans Pro', sans-serif;
 }
+
+
 /* General Links */
 a {
-  color: #3c8dbc;
+  color: #cd703e;
 }
 a:hover,
 a:active,
@@ -176,6 +180,13 @@ a:focus {
   text-decoration: none;
   color: #72afd2;
 }
+
+
+.combine {
+  position: fixed;
+}
+
+
 /* Page Header */
 .page-header {
   margin: 10px 0 20px 0;
@@ -191,7 +202,7 @@ a:focus {
  * ----------------------
  */
 .main-header {
-  position: relative;
+  position: fixed;
   max-height: 100px;
   z-index: 1030;
 }
@@ -276,7 +287,7 @@ a:focus {
   margin-right: 5px;
 }
 .main-header .navbar .nav > li > a > .label {
-  position: absolute;
+  position: fixed;
   top: 9px;
   right: 7px;
   text-align: center;
@@ -310,7 +321,7 @@ a:focus {
   color: #fff;
 }
 .content-header {
-  position: relative;
+  position: fixed;
   padding: 15px 15px 0 15px;
 }
 .content-header > h1 {
@@ -330,7 +341,7 @@ a:focus {
   margin-bottom: 0;
   font-size: 12px;
   padding: 7px 5px;
-  position: absolute;
+  position: fixed;
   top: 15px;
   right: 10px;
   border-radius: 2px;
@@ -350,7 +361,7 @@ a:focus {
 }
 @media (max-width: 991px) {
   .content-header > .breadcrumb {
-    position: relative;
+    position: fixed;
     margin-top: 5px;
     top: 0;
     right: 0;
@@ -371,6 +382,7 @@ a:focus {
 @media (max-width: 991px) {
   .navbar-custom-menu .navbar-nav > li {
     float: left;
+
   }
   .navbar-custom-menu .navbar-nav {
     margin: 0;
@@ -384,7 +396,7 @@ a:focus {
 }
 @media (max-width: 767px) {
   .main-header {
-    position: relative;
+    position: fixed;
   }
   .main-header .logo,
   .main-header .navbar {
@@ -404,21 +416,22 @@ a:focus {
   }
   .navbar-collapse.pull-left + .navbar-custom-menu {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 40px;
+    right: 0px;
   }
 }
 /*
+.content-wrapper
  * Component: Sidebar
  * ------------------
  */
 .main-sidebar,
 .left-side {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  padding-top: 50px;
+  padding-top: 15%;
   min-height: 100%;
   width: 230px;
   z-index: 810;
@@ -507,18 +520,19 @@ a:focus {
   margin-right: 3px;
 }
 .sidebar-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.sidebar-menu > li {
   position: relative;
   margin: 0;
   padding: 0;
 }
+.sidebar-menu > li {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
 .sidebar-menu > li > a {
   padding: 12px 5px 12px 15px;
-  display: block;
+  display: flex;
 }
 .sidebar-menu > li > a > .fa,
 .sidebar-menu > li > a > .glyphicon,
@@ -548,7 +562,7 @@ a:focus {
   transform: rotate(-90deg);
 }
 .sidebar-menu li.active > .treeview-menu {
-  display: block;
+  display: inline-block;
 }
 .sidebar-menu .treeview-menu {
   display: none;
@@ -596,10 +610,10 @@ a:focus {
     z-index: 850;
   }
   .sidebar-mini.sidebar-collapse .sidebar-menu > li {
-    position: relative;
+    position: absolute;
   }
   .sidebar-mini.sidebar-collapse .sidebar-menu > li > a {
-    margin-right: 0;
+    margin-right: 0px;
   }
   .sidebar-mini.sidebar-collapse .sidebar-menu > li > a > span {
     border-top-right-radius: 4px;
@@ -615,7 +629,7 @@ a:focus {
   .sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > a > span:not(.pull-right),
   .sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > .treeview-menu {
     display: block !important;
-    position: absolute;
+    position: relative;
     width: 180px;
     left: 50px;
   }
@@ -636,7 +650,7 @@ a:focus {
   .sidebar-mini.sidebar-collapse .sidebar-menu > li > a > .pull-right,
   .sidebar-mini.sidebar-collapse .sidebar-menu li.header {
     display: none !important;
-    -webkit-transform: translateZ(0);
+    
   }
   .sidebar-mini.sidebar-collapse .main-header .logo {
     width: 50px;
@@ -681,7 +695,7 @@ a:focus {
  * Component: Control sidebar. By default, this is the right sidebar.
  */
 .control-sidebar-bg {
-  position: fixed;
+  position: absolute;
   z-index: 1000;
   bottom: 0;
 }
@@ -4904,3 +4918,4 @@ table.text-center th {
     white-space: normal !important;
   }
 }
+
