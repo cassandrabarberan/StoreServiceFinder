@@ -70,7 +70,7 @@
 	As of <?php echo date('m/d/Y');?>
 
   </p>
-<table   class="table table-striped  table-hover table-responsive" style="font-size:12px" cellspacing="0">
+<table   class="table table-striped  table-hover table-responsive" style="font-size:12px; display:inline-table" cellspacing="0">
 
   <thead>
   	<tr>
@@ -136,8 +136,8 @@
  
 
 
- <div class="row no-print">
-  <center><button type="button" class="btn btn-info pull-center" button onclick="myFunction()">Print Result</button></center>
+ <div class="row no-print pull-right" style="font-size: 15px ;">
+  <center><button type="button" class="btn-lg btn-info " button onclick="myFunction()">Print Result</button></center>
 </div>
   <script> 
   function myFunction(){

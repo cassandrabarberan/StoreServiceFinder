@@ -156,7 +156,7 @@
 
                 <div style="font-size: 23px">List of Expired Products</div>
                 
-              <table id="dash-table" class="table table-striped  table-hover table-responsive" style="font-size:12px" cellspacing="0">
+              <table id="dash-table" class="table table-striped  table-hover table-responsive" style="font-size:12px; display:inline-table" cellspacing="0">
 
                 <thead>
                   <tr> 

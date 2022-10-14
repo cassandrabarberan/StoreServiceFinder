@@ -13,7 +13,7 @@
                 
  
 						<form class="wow fadeInDownaction" action="controller.php?action=delete" Method="POST">   		
-							<table id="tree_table" class="table table-striped  table-hover table-responsive mytbl" style="font-size:12px" cellspacing="0">
+							<table id="tree_table" class="table table-striped  table-hover table-responsive mytbl" style="font-size:12px; display:inline-table" cellspacing="0">
 								<label>Search For </label> : <input class="search" placeholder="Search" />
 							  <thead> 
 							  	<tr>

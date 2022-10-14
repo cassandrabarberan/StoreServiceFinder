@@ -48,7 +48,7 @@
 					  <div class="col-sm-12 search1">
 					    <label class="col-sm-3"></label>
 					    <div class="col-sm-9">
-					       <input type="submit" name="submit" class="btn btn-success">
+					       <input type="submit" name="submit" class="btn-lg btn-success">
 					    </div>
 					  </div>
 					</div>  
@@ -84,9 +84,9 @@
   </p>
   	  
  <div class="row no-print">
-  <center><button type="button" class="btn btn-info pull-center" button onclick="myFunction()">Print Report</button></center>
+  <center><button type="button" class="btn-lg btn-info pull-center" button onclick="myFunction()">Print Report</button></center>
 </div>
-  <table class="table table-bordered">
+  <table class="table table-bordered" style="font-size:15px ;">
   	<thead>
   		<th>ProductID</th>
   		<th>Products</th>

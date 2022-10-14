@@ -164,7 +164,7 @@ $mydb->executeQuery();
 
     <!-- start header -->
     <header>
-      <div id="topbar" class="topbar navbar-fixed-top" style="padding: 0px;border-bottom: 3px solid #00bcd4; ">
+      <div id="topbar" class="topbar navbar-fixed-top " style="padding: 0px;border-bottom: 3px solid #00bcd4; ">
         <div class="container">
           <div class="row">
             <div class="col-md-12">

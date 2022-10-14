@@ -174,7 +174,7 @@ if ($orderPendings > 0) {
         </nav>
 
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="font-size: 15px;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light " style="font-size: 15px;">
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -218,7 +218,7 @@ if ($orderPendings > 0) {
                 <a class="nav-link dropdown-toggle fa fa-bar-chart" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Reports
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="font-size:15px">
                   <a class="dropdown-item <?php echo (currentpage() == 'inventoryreport') ? "active" : false; ?>" href="<?php echo web_root; ?>admin/inventoryreport/"> Inventory</a>
                   <a class="dropdown-item <?php echo (currentpage() == 'inventoryreport') ? "active" : false; ?>" href="<?php echo web_root; ?>admin/salesreport/"> Sales</a>
 
@@ -350,6 +350,8 @@ if ($orderPendings > 0) {
       <strong>Copyright &copy; 2022 <a href="#"> G-11 Thesis Group </a>.</strong> All rights
       reserved.
     </footer>
+    
+
 
 
 
