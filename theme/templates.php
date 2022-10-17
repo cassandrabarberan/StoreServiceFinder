@@ -136,7 +136,7 @@ $mydb->executeQuery();
 
     .body-content {
       /*clear: both;*/
-      margin: 130px 0px;
+      margin: 0px 0px;
     }
 
     @media screen and (min-width: 400px) {

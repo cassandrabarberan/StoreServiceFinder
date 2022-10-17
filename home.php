@@ -55,7 +55,7 @@
   <!-- end slider -->
  
   </section> 
-  <section id="call-to-action-2"  style="background-color:#06d5f0;" >
+  <section id="call-to-action-2"  style="background-color:#06d5f0; padding:0px;" >
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-sm-9" >
@@ -68,7 +68,7 @@
       </div>
     </div>
   </section>
-  <section style="background-color: #eee">
+  <!-- <section style="background-color: #eee">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -77,60 +77,60 @@
           </div>
         </div>
       </div>
-      <div class="row">
+     <div class="row">
         <div class="col-md-12 ">
-          <?php 
+          < ?php 
             $sql = "SELECT * FROM `tblproduct` p, `tblcategory` c WHERE p.`CategoryID`=c.`CategoryID` GROUP BY c.`CategoryID` ";
             $mydb->setQuery($sql);
             $cur = $mydb->loadResultList();
 
             foreach ($cur as $result) {
              ?>
-             <a href="index.php?q=category&search=<?php echo $result->CategoryID;?>" title="<?php echo $result->Categories;?>">
+             <a href="index.php?q=category&search=< ?php echo $result->CategoryID;?>" title="< ?php echo $result->Categories;?>">
                 <div class="col-sm-2 info-blocks" style="min-height: 340px;padding: 0px;border: 1px solid #ddd;background-color: #fff;"> 
                           <div class="stretch">  
-                              <img src="<?php echo web_root.'admin/products/'. $result->Image1 ?>">
-                             <!--  <div id="myCarousels<?php echo $result->ProductID; ?>" class="carousel slide" data-ride="carousel">
+                              <img src="< ?php echo web_root.'admin/products/'. $result->Image1 ?>">
+                             < !--  <div id="myCarousels< ?php echo $result->ProductID; ?>" class="carousel slide" data-ride="carousel">
                                   
  
                                   <div class="carousel-inner">
                                     <div id="items" class="item  active">
-                                    <img src=" <?php echo web_root.'admin/products/'. $result->Image1 ?>" >
+                                    <img src=" < ?php echo web_root.'admin/products/'. $result->Image1 ?>" >
                                     </div>
 
                                     <div id="items" class="item ">
-                                    <img src=" <?php echo web_root.'admin/products/'. $result->Image2 ?>" >
+                                    <img src=" < ?php echo web_root.'admin/products/'. $result->Image2 ?>" >
                                     </div>
                                   
                                     <div id="items" class="item ">
-                                    <img src=" <?php echo web_root.'admin/products/'. $result->Image3 ?>" >
+                                    <img src=" < ?php echo web_root.'admin/products/'. $result->Image3 ?>" >
                                     </div>
                                   </div> 
-                                  <a class="left carousel-control" href="#myCarousels<?php echo $result->ProductID; ?>" data-slide="prev">
+                                  <a class="left carousel-control" href="#myCarousels< ?php echo $result->ProductID; ?>" data-slide="prev">
                                     <span class="glyphicon glyphicon-chevron-left"></span>
                                     <span class="sr-only">Previous</span>
                                   </a>
-                                  <a class="right carousel-control" href="#myCarousels<?php echo $result->ProductID; ?>" data-slide="next">
+                                  <a class="right carousel-control" href="#myCarousels< ?php echo $result->ProductID; ?>" data-slide="next">
                                     <span class="glyphicon glyphicon-chevron-right"></span>
                                     <span class="sr-only">Next</span>
                                   </a>
-                                </div>  --> 
-                          </div>
+                                </div>  
+                          < /div>
 
-                <div class="info-blocks-in" style="background-color: #fff">
-                    <label><?php echo $result->Categories;?></label> 
-                </div>
-            </div>
-          </a>
-           <?php }
+                < d iv class="info-blocks-in" style="background-color: #fff">
+                    < label>< ?php echo $result->Categories;?></ label> 
+                < /div>
+            < /div>
+          < /a>
+           <  ?php }
 
           ?>
-        </div>
-      </div>
+        < /div>
+      < /div> -->
  
     </div>
   </section>    
-  <section id="content" style="background-color: #fff">
+  <section id="content" style="background-color: #fff; padding-top:0px;">
    <div class="container"> 
  
  <div class="row">
@@ -184,7 +184,7 @@
   </section>
   
   
-  <section id="content-3-10" class="content-block data-section nopad content-3-10">
+  <section id="content-3-10" class="content-block data-section nopad content-3-10" style="margin-top:20px;">
 <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">

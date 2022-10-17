@@ -78,7 +78,7 @@ if ($orderPendings > 0) {
   <div class="wrapper">
 
     <div class="combine">
-      <header class=" " style="background-color:#06d5f0; ">
+      <header class="" style="background-color:#06d5f0;  ">
         <!-- Logo -->
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -174,7 +174,7 @@ if ($orderPendings > 0) {
         </nav>
 
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light " style="font-size: 15px;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light " style="font-size: 15px; ">
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -560,17 +560,6 @@ if ($orderPendings > 0) {
   });
 </script>
 
-
-
-
-----------------------------------------------------------------------------------
-
-
-
-----------------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------------------------
 
 
 
