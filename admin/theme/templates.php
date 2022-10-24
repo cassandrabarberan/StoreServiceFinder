@@ -66,186 +66,112 @@ if ($orderPendings > 0) {
   <link href="<?php echo web_root; ?>dist/css/jquery.treetable.css" rel="stylesheet">
   <link href="<?php echo web_root; ?>dist/css/jquery.treetable.theme.default.css" rel="stylesheet">
 
-  <!-- bootstrap 4 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </head>
 
-<body class="cont">
+<body class="hold-transition skin-blue fixed sidebar-mini">
   <div class="wrapper">
 
-    <div class="combine">
-      <header class="" style="background-color:#06d5f0;  ">
-        <!-- Logo -->
+    <header class="main-header">
+      <!-- Logo -->
+      <a href="<?php echo web_root; ?>" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>Store</b></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Store Finder</b></span>
+      </a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
 
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="display:inline; padding:1px;">
-          <!-- Sidebar toggle button-->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
 
+            <?php
+            $number_notif = 0;
+            $user = new User();
+            $singleuser = $user->single_user($_SESSION['ADMIN_USERID']);
 
-          <div class="navbar-custom-menu pull-right " style="font-size: 15px;">
-            <ul class="nav navbar-nav" style="flex-direction: row ;">
+            $sql = "SELECT *, Sum(Remaining) as NUM FROM `tblproduct` p,`tblstockin` i, `tblcategory` c,`tblstore` s WHERE p.`ProductID`=i.`ProductID` AND p.`CategoryID`=c.`CategoryID` AND p.`StoreID`=s.`StoreID`  AND p.`StoreID`=" . $_SESSION['ADMIN_USERID'] . "  GROUP BY p.ProductID";
+            // }
+            $mydb->setQuery($sql);
+            $cur = $mydb->loadResultList();
 
-              <?php
-              $number_notif = 0;
-              $user = new User();
-              $singleuser = $user->single_user($_SESSION['ADMIN_USERID']);
+            foreach ($cur as $result) {
 
-              $sql = "SELECT *, Sum(Remaining) as NUM FROM `tblproduct` p,`tblstockin` i, `tblcategory` c,`tblstore` s WHERE p.`ProductID`=i.`ProductID` AND p.`CategoryID`=c.`CategoryID` AND p.`StoreID`=s.`StoreID`  AND p.`StoreID`=" . $_SESSION['ADMIN_USERID'] . "  GROUP BY p.ProductID";
-              // }
-              $mydb->setQuery($sql);
-              $cur = $mydb->loadResultList();
-
-              foreach ($cur as $result) {
-
-                if ($result->NUM < 10) {
-                  $number_notif += 1;
-                }
+              if ($result->NUM < 10) {
+                $number_notif += 1;
               }
+            }
 
 
 
-              ?>
-              <!-- Notifications: style can be found in dropdown.less -->
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-bell-o"></i>
-                  <span class="label label-warning"><?php echo $number_notif; ?></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="header"><?php echo $number_notif; ?> Product(s) that is Running Out of Stock </li>
-                  <li>
-                    <ul class="menu">
+            ?>
+            <!-- Notifications: style can be found in dropdown.less -->
+            <li class="dropdown notifications-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-bell-o"></i>
+                <span class="label label-warning"><?php echo $number_notif; ?></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="header"><?php echo $number_notif; ?> Product(s) that is Running Out of Stock </li>
+                <li>
+                  <ul class="menu">
 
-                      <?php
-                      $sql = "SELECT *, Sum(Remaining) as NUM FROM `tblproduct` p,`tblstockin` i, `tblcategory` c,`tblstore` s WHERE p.`ProductID`=i.`ProductID` AND p.`CategoryID`=c.`CategoryID` AND p.`StoreID`=s.`StoreID`  AND p.`StoreID`=" . $_SESSION['ADMIN_USERID'] . "  GROUP BY p.ProductID";
-                      // }
-                      $mydb->setQuery($sql);
-                      $cur = $mydb->loadResultList();
+                    <?php
+                    $sql = "SELECT *, Sum(Remaining) as NUM FROM `tblproduct` p,`tblstockin` i, `tblcategory` c,`tblstore` s WHERE p.`ProductID`=i.`ProductID` AND p.`CategoryID`=c.`CategoryID` AND p.`StoreID`=s.`StoreID`  AND p.`StoreID`=" . $_SESSION['ADMIN_USERID'] . "  GROUP BY p.ProductID";
+                    // }
+                    $mydb->setQuery($sql);
+                    $cur = $mydb->loadResultList();
 
-                      foreach ($cur as $result) {
+                    foreach ($cur as $result) {
 
-                        if ($result->NUM < 10) {
-                          echo '<li>
+                      if ($result->NUM < 10) {
+                        echo '<li>
                         <a href="' . web_root . 'admin/stockin/index.php?view=add&id=' . $result->ProductID . '">
                           <i class="fa fa-barcode text-aqua"></i> ' . $result->ProductName . '| ' . $result->NUM  . ' Remaining
                         </a>
                       </li>';
-                        }
                       }
-                      ?>
+                    }
+                    ?>
 
-                    </ul>
-                  </li>
-                  <!-- <li class="footer"><a href="#">View all</a></li> -->
-                </ul>
-              </li>
-              <!-- User Account: style can be found in dropdown.less -->
-              <li class="dropdown user user-menu" style="padding-right: 15px;">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="<?php echo web_root . 'admin/user/' . $singleuser->PicLoc; ?>" class="user-image" alt="User Image">
-                  <span class="hidden-xs"><?php echo $singleuser->FullName; ?></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <!-- User image -->
-                  <li class="user-header">
-                    <img data-target="#menuModal" data-toggle="modal" src="<?php echo web_root . 'admin/user/' . $singleuser->PicLoc; ?>" class="img-circle" alt="User Image" />
-                  </li>
-                  <!-- Menu Footer-->
-                  <li class="user-footer">
-                    <div class="pull-left">
-                      <a href="<?php echo web_root . 'admin/user/index.php?view=view&id=' . $_SESSION['ADMIN_USERID']; ?>" class="btn btn-default btn-flat">Profile</a>
-                    </div>
-                    <div class="pull-right">
-                      <a href="<?php echo web_root; ?>admin/logout.php" class="btn btn-default btn-flat">Sign out</a>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <!-- Control Sidebar Toggle Button -->
-
-
-
-            </ul>
-          </div>
-        </nav>
-
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light " style="font-size: 15px; ">
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item <?php echo (currentpage() == 'index.php') ? "active" : True; ?> ">
-                <a class="nav-link" href="<?php echo web_root; ?>admin/">
-                  <i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
-              </li>
-              <?php if ($singleuser->Role == "Administrator") { ?>
-                <li class="nav-item <?php echo (currentpage() == 'store') ? "active" : false; ?>">
-                  <a class="nav-link" href="<?php echo web_root; ?>admin/store/">
-                    <i class="fa fa-building"></i> <span>Store</span>
-                  </a>
-                </li> <?php } ?>
-
-              <li class=" nav-item <?php echo (currentpage() == 'products') ? "active" : false; ?>">
-                <a class="nav-link" href="<?php echo web_root; ?>admin/products/">
-                  <i class="fa fa-suitcase"></i> <span>Products</span>
-                </a>
-              </li>
-              <li class="nav-item <?php echo (currentpage() == 'stockin') ? "active" : false; ?>">
-                <a class="nav-link" href="<?php echo web_root; ?>admin/stockin/">
-                  <i class="fa fa-th"></i> <span>Stock-in</span>
-                </a>
-              </li>
-
-              <li class=" nav-item <?php echo (currentpage() == 'inventory') ? "active" : false; ?>">
-                <a class="nav-link" href="<?php echo web_root; ?>admin/inventory/">
-                  <i class="fa fa-list-alt"></i> <span>Inventory</span> </a>
-              </li>
-              <li class=" nav-item <?php echo (currentpage() == 'category') ? "active" : false; ?>">
-                <a class="nav-link" href="<?php echo web_root; ?>admin/category/">
-                  <i class="fa fa-list"></i> <span>Category</span>
-                </a>
-              </li>
-
-              
-              <li class="nav-item dropdown <?php echo (currentpage() == 'inventoryreport' || currentpage() == 'salesreport') ? "active" : false; ?>">
-                <a class="nav-link dropdown-toggle fa fa-bar-chart" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Reports
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="font-size:15px">
-                  <a class="dropdown-item <?php echo (currentpage() == 'inventoryreport') ? "active" : false; ?>" href="<?php echo web_root; ?>admin/inventoryreport/"> Inventory</a>
-                  <a class="dropdown-item <?php echo (currentpage() == 'inventoryreport') ? "active" : false; ?>" href="<?php echo web_root; ?>admin/salesreport/"> Sales</a>
-
-                </div>
-              </li>
-
-              <?php if ($_SESSION['ADMIN_ROLE'] == 'Administrator') { ?>
-                <!--         <li class="<?php echo (currentpage() == 'autonumber') ? "active" : false; ?>" >
-<a href="<?php echo web_root; ?>admin/autonumber/">
-<i class="fa fa-suitcase"></i> <span>Autonumber</span> 
-</a>
-</li>  -->
-                <li class="<?php echo (currentpage() == 'user') ? "active" : false; ?>">
-                  <a href="<?php echo web_root; ?>admin/user/">
-                    <i class="fa fa-user"></i> <span>Manage Users</span> </a>
+                  </ul>
                 </li>
-              <?php } ?>
+                <!-- <li class="footer"><a href="#">View all</a></li> -->
+              </ul>
+            </li>
+            <!-- User Account: style can be found in dropdown.less -->
+            <li class="dropdown user user-menu" style="padding-right: 15px;">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="<?php echo web_root . 'admin/user/' . $singleuser->PicLoc; ?>" class="user-image" alt="User Image">
+                <span class="hidden-xs"><?php echo $singleuser->FullName; ?></span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- User image -->
+                <li class="user-header">
+                  <img data-target="#menuModal" data-toggle="modal" src="<?php echo web_root . 'admin/user/' . $singleuser->PicLoc; ?>" class="img-circle" alt="User Image" />
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="<?php echo web_root . 'admin/user/index.php?view=view&id=' . $_SESSION['ADMIN_USERID']; ?>" class="btn btn-default btn-flat">Profile</a>
+                  </div>
+                  <div class="pull-right">
+                    <a href="<?php echo web_root; ?>admin/logout.php" class="btn btn-default btn-flat">Sign out</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <!-- Control Sidebar Toggle Button -->
 
-
-            </ul>
-          </div>
-        </nav>
-      </header>
-    </div>
-
-
-
+          </ul>
+        </div>
+      </nav>
+    </header>
 
 
 
@@ -287,14 +213,93 @@ if ($orderPendings > 0) {
 
 
 
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
 
 
-
-
-
-
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+          <li class="<?php echo (currentpage() == 'index.php') ? "active" : false; ?>">
+            <a href="<?php echo web_root; ?>admin/">
+              <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            </a>
+          </li>
+          <?php if ($singleuser->Role == "Administrator") { ?>
+            <li class="<?php echo (currentpage() == 'store') ? "active" : false; ?>">
+              <a href="<?php echo web_root; ?>admin/store/">
+                <i class="fa fa-building"></i> <span>Store</span>
+              </a>
+            </li>
+          <?php } ?>
+          <li class="<?php echo (currentpage() == 'products') ? "active" : false; ?>">
+            <a href="<?php echo web_root; ?>admin/products/">
+              <i class="fa fa-suitcase"></i> <span>Products</span>
+            </a>
+          </li>
+          <li class="<?php echo (currentpage() == 'stockin') ? "active" : false; ?>">
+            <a href="<?php echo web_root; ?>admin/stockin/">
+              <i class="fa fa-th"></i> <span>Stock-in</span>
+            </a>
+          </li>
+          <li class="<?php echo (currentpage() == 'orders') ? "active" : false; ?>">
+            <a href="<?php echo web_root; ?>admin/orders/">
+              <i class="fa fa-th-list"></i> <span>Orders </span> <label class="label label-danger pull-right"><?php echo $pending_orders; ?></label>
+            </a>
+          </li>
+          <li class="<?php echo (currentpage() == 'inventory') ? "active" : false; ?>">
+            <a href="<?php echo web_root; ?>admin/inventory/">
+              <i class="fa fa-list-alt"></i> <span>Inventory</span> </a>
+          </li>
+          <li class="<?php echo (currentpage() == 'category') ? "active" : false; ?>">
+            <a href="<?php echo web_root; ?>admin/category/">
+              <i class="fa fa-list"></i> <span>Category</span>
+            </a>
+          </li>
+          <li class="treeview <?php echo (currentpage() == 'inventoryreport' || currentpage() == 'salesreport') ? "active" : false; ?>">
+            <a href="#">
+              <i class="fa fa-bar-chart"></i>
+              <span>Reports</span>
+              <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li class="<?php echo (currentpage() == 'inventoryreport') ? "active" : false; ?>"><a href="<?php echo web_root; ?>admin/inventoryreport/"><i class="fa fa-circle-o"></i> Inventory</a></li>
+              <li class="<?php echo (currentpage() == 'salesreport') ? "active" : false; ?>"><a href="<?php echo web_root; ?>admin/salesreport/"><i class="fa fa-circle-o"></i> Sales</a></li>
+            </ul>
+          </li>
+          <!-- <li class="treeview">
+          <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>UI Elements</span>
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo web_root; ?>pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
+            <li><a href="<?php echo web_root; ?>pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
+            <li><a href="<?php echo web_root; ?>pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
+            <li><a href="<?php echo web_root; ?>pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
+            <li><a href="<?php echo web_root; ?>pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
+            <li><a href="<?php echo web_root; ?>pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+          </ul>
+        </li> -->
+          <?php if ($_SESSION['ADMIN_ROLE'] == 'Administrator') { ?>
+            <!--         <li class="<?php echo (currentpage() == 'autonumber') ? "active" : false; ?>" >
+          <a href="<?php echo web_root; ?>admin/autonumber/">
+            <i class="fa fa-suitcase"></i> <span>Autonumber</span> 
+          </a>
+        </li>  -->
+            <li class="<?php echo (currentpage() == 'user') ? "active" : false; ?>">
+              <a href="<?php echo web_root; ?>admin/user/">
+                <i class="fa fa-user"></i> <span>Manage Users</span> </a>
+            </li>
+          <?php } ?>
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" style="margin-left:0px ;">
+    <div class="content-wrapper">
 
       <section class="content-header">
         <h1>
@@ -343,15 +348,13 @@ if ($orderPendings > 0) {
     <!-- /.content-wrapper -->
 
 
-    <footer class="main-footer" style="margin-left: 0px;">
+    <footer class="main-footer">
       <div class="pull-right hidden-xs">
-        <b>PHP Version</b> 5.6
+        <b>Version</b> 1.0.0
       </div>
-      <strong>Copyright &copy; 2022 <a href="#"> G-11 Thesis Group </a>.</strong> All rights
+      <strong>Copyright &copy; 2022 <a href="#">storefinderzamboanga@gmail.com</a>.</strong> All rights
       reserved.
     </footer>
-    
-
 
 
 
@@ -559,8 +562,5 @@ if ($orderPendings > 0) {
     }
   });
 </script>
-
-
-
 
 </html>
