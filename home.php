@@ -130,17 +130,17 @@
  
     </div>
   </section>    
-  <section id="content" style="background-color: #fff; padding-top:0px;">
+ <!-- <section id="content" style="background-color: #fff; padding-top:0px;">
    <div class="container"> 
  
  <div class="row">
       <div class="col-md-12">
-        <div class="aligncenter"><h2 class="aligncenter">Products</h2><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt.. --></div>
-        <br/>
-      </div>
-    </div>
+        <div class="aligncenter"><h2 class="aligncenter">Products</h2><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt..</div>
+        < br/>
+      < /div>
+    < /div>
 
-    <?php 
+    < ?php 
  
  // function of expiration
     // $sql = "UPDATE `tblstockin` SET ExpiredQty=1,Remaining=0 WHERE `Sold`=0 AND  datediff(date(DateExpire),date(Now())) <= 0 ";
@@ -149,39 +149,39 @@
  
  
 
-      $sql = "SELECT * FROM `tblproduct` p, `tblcategory` c WHERE p.`CategoryID`=c.`CategoryID` GROUP BY ProductName";
-      $mydb->setQuery($sql);
-      $p = $mydb->loadResultList();
+   //   $sql = "SELECT * FROM `tblproduct` p, `tblcategory` c WHERE p.`CategoryID`=c.`CategoryID` GROUP BY ProductName";
+    //  $mydb->setQuery($sql);
+    //  $p = $mydb->loadResultList();
 
 
-      foreach ($p as $product ) {
+   //   foreach ($p as $product ) {
         # code...
     
     ?>
-           <a  href="index.php?q=products&id=<?php echo $product->ProductID;?>" title="<?php echo $product->ProductName;?> <?php echo $product->Description;?> <?php echo $product->Categories;?>">
+           <a  href="index.php?q=products&id=< ?php echo $product->ProductID;?>" title="< ?php echo $product->ProductName;?> < ?php echo $product->Description;?> < ?php echo $product->Categories;?>">
             <div class="col-sm-3 info-blocks" style="border: 1px solid #ddd; padding: 0px;"> 
                         <div class="stretch" >  
-                           <img src="<?php echo web_root.'admin/products/'. $product->Image1 ?>">
+                           <img src="< ?php echo web_root.'admin/products/'. $product->Image1 ?>">
                          
                           </div> 
 
-          </a>
-             <a  href="index.php?q=products&id=<?php echo $product->ProductID;?>" title="<?php echo $product->ProductName;?> <?php echo $product->Description;?> <?php echo $product->Categories;?>">
+          </a> -->
+         <!--    <a  href="index.php?q=products&id=< ?php echo $product->ProductID;?>" title="< ?php echo $product->ProductName;?> < ?php echo $product->Description;?> < ?php echo $product->Categories;?>">
                 <div class="info-blocks-in">
-                    <p> <?php echo $product->ProductName;?>  </p>
-                    <p><?php echo $product->Description;?> <?php echo $product->Categories;?> </p>  <br/>
-                    <p id="pricein">&#8369 <?php echo number_format($product->Price,2);?></p>
+                    <p> < ?php echo $product->ProductName;?>  </p>
+                    <p>< ?php echo $product->Description;?> < ?php echo $product->Categories;?> </p>  <br/>
+                    <p id="pricein">&#8369 < ?php echo number_format($product->Price,2);?></p>
                 </div>
                 
                 </div> 
-             </a>
+             </a> 
 
-    <?php } ?> 
-      </div>
+    < ?php //} ?> 
+      < /div>
   
 
 
-  </section>
+  </section> -->
   
   
   <section id="content-3-10" class="content-block data-section nopad content-3-10" style="margin-top:20px;">

@@ -112,7 +112,7 @@
           // validating cookie
             if (!isset($_COOKIE['lat'])) {
               # code...
-              redirect("index.php?q=nearstore");
+             // redirect("index.php?q=nearstore");
             }
           ?>
 

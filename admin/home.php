@@ -164,7 +164,7 @@
                   <th>Product</th>
                   <th>Description</th>
                   <th>Price</th>
-                  <th>Quantity</th>
+                 <!--<th>Quantity</th> -->
                   <th>Expired Date</th> 
                   <th>Categories</th>
                   <th>Status</th> 
@@ -194,7 +194,7 @@
                     echo '<td>'. $result->ProductName.'</td>';
                     echo '<td>' . $result->Description.'</a></td>';
                     echo '<td>' . $result->Price.'</a></td>'; 
-                    echo '<td>'. $result->NUM.'</td>'; 
+                    // echo '<td>'. $result->NUM.'</td>'; //
                     echo '<td>'. $result->DateExpire.'</td>';
                     echo '<td>'. $result->Categories.'</td>';  
                     $expStatus =  "Expired";

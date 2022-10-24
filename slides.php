@@ -50,7 +50,7 @@
               </li>
 
               <li>
-                <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/img5.jpg" alt="" />
+                <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/banner.png" alt="" />
                 <div class="flex-caption">
                  <!--    <h3>The Generics Pharmacy</h3> 
                        <p>TG Pagpagaling nang sakit</p>  -->
@@ -58,7 +58,7 @@
                 </div>
               </li>
               <li>
-                <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/img6.jpg" alt="" />
+                <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/banner.png" alt="" />
                 <div class="flex-caption">
                  <!--    <h3>The Generics Pharmacy</h3> 
                        <p>TG Pagpagaling nang sakit</p>  -->
@@ -66,7 +66,7 @@
                 </div>
               </li>
               <li>
-                <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/img7.jpg" alt="" />
+                <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/banner.png" alt="" />
                 <div class="flex-caption">
                  <!--    <h3>The Generics Pharmacy</h3> 
                        <p>TG Pagpagaling nang sakit</p>  -->
@@ -74,7 +74,7 @@
                 </div>
               </li>
               <li>
-                <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/img8.jpg" alt="" />
+                <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/banner.png" alt="" />
                 <div class="flex-caption">
                  <!--    <h3>The Generics Pharmacy</h3> 
                        <p>TG Pagpagaling nang sakit</p>  -->
