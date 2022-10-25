@@ -341,13 +341,13 @@ $mydb->executeQuery();
             <div class="widget">
               <h5 class="widgetheading">Our Contact</h5>
               <address>
-                <strong>Store Locator Finder</strong><br>
+                <strong>Store & Service Finder</strong><br>
 
                 Zamboanga City
               </address>
               <p>
-                <i class="icon-phone"></i> 09936324530---(DITO)<br>
-                <i class="icon-phone"></i> 09936324531---(DITO)<br>
+                <i class="icon-phone"></i> 09936324530 --- (DITO)<br>
+                <i class="icon-phone"></i> 09936324531 --- (DITO)<br>
                 <i class="icon-envelope-alt"></i> spoted1999@gmail.com
               </p>
             </div>
