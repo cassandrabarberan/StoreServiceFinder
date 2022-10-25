@@ -5,7 +5,7 @@
   }
   .slides > li > img {
     width: 100%;
-    height: 480px;
+    height: 400px;
   }
   #item > img{
     width: 100%;
@@ -59,7 +59,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-sm-9" >
-          <h3 style="color: #ffffff">Your Store Finder</h3>
+          <h3 style="color: #ffffff">Your Store & Service Finder</h3>
           <p style="color: #ffffff">Your Ways.</p>
         </div>
        <!--  <div class="col-md-2 col-sm-3">
@@ -179,22 +179,17 @@
     < ?php //} ?> 
       < /div>
   
-
-
   </section> -->
-  
   
   <section id="content-3-10" class="content-block data-section nopad content-3-10" style="margin-top:20px;">
 <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner">
+    <!-- <div class="carousel-inner">
       <div  id="item" class="item active"> 
-        <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/drug.png" alt="Los Angeles" style="height: 350px;" >
-      </div>
+        <img src="plugins/home-plugins/img/slides/drug.png" alt="Los Angeles" style="height: 350px;" >
+      </div> -->
 
-    
-    
-     <?php 
+      <!-- <?php 
           $sql ="SELECT * FROM tblproduct";
           $mydb->setQuery($sql);
           $res = $mydb->loadResultList();
@@ -206,17 +201,17 @@
             
           }
       ?>
-    </div>
+    </div> -->
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
       <span class="sr-only">Previous</span>
     </a>
     <a class="right carousel-control" href="#myCarousel" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right"></span>
       <span class="sr-only">Next</span>
-    </a>
+    </a> -->
   </div>
 </section>
   
@@ -224,7 +219,7 @@
 <div class="container">
   <div class="row">
       <div class="col-md-12">
-        <div class="aligncenter"><h2 class="aligncenter">Store</h2><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt.. --></div>
+        <div class="aligncenter"><h2 class="aligncenter">Stores</h2><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt.. --></div>
         <br/>
       </div>
     </div>
