@@ -111,8 +111,8 @@
         var purple_icon =  'http://maps.google.com/mapfiles/ms/icons/purple-dot.png' ;
         var marker;
         var locations = <?php echo json_encode($data) ?>;  
-        LatLng = {lat:14.0940, lng: 120.6890};
-         map = new google.maps.Map(document.getElementById('map'), {zoom: 10, center: LatLng});
+        LatLng = {lat: 6.9415, lng: 122.0585};
+         map = new google.maps.Map(document.getElementById('map'), {zoom: 12.5, center: LatLng});
  
 
         /**
