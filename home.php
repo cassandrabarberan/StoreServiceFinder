@@ -6,14 +6,15 @@
   .slides > li > img {
     width: 100%;
     height: 400px;
+    border: none;
+    
   }
-  #item > img{
+  #item > img {
     width: 100%;
     height: 4%;
   }
  
-
-  #items  img{
+  #items img {
     width: 100%;
     height:200px;
   }
@@ -55,12 +56,12 @@
   <!-- end slider -->
  
   </section> 
-  <section id="call-to-action-2"  style="background-color:#06d5f0; padding:0px;" >
+  <section id="call-to-action-2"  style="background-color:#00bcd4; padding: 0; height: 120px;" >
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-sm-9" >
-          <h3 style="color: #ffffff">Your Store & Service Finder</h3>
-          <p style="color: #ffffff">Your Ways.</p>
+          <h2 style="color: #ffffff">Your Store Locator</h2>
+          <p style="color: #ffffff;">Your Ways.</p>
         </div>
        <!--  <div class="col-md-2 col-sm-3">
           <a href="#" class="btn btn-primary">Read More</a>
@@ -212,49 +213,49 @@
       <span class="glyphicon glyphicon-chevron-right"></span>
       <span class="sr-only">Next</span>
     </a> -->
-  </div>
-</section>
+  <!-- </div>
+</section> -->
   
-  <div class="about home-about">
-<div class="container">
-  <div class="row">
-      <div class="col-md-12">
-        <div class="aligncenter"><h2 class="aligncenter">Stores</h2><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt.. --></div>
-        <br/>
-      </div>
-    </div>
+<!-- <div class="about home-about"> -->
+<!-- <div class="container"> -->
+  <!-- <div class="row"> -->
+      <!-- <div class="col-md-12"> -->
+        <!-- <div class="aligncenter"><h2 class="aligncenter">Stores</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt..</div> -->
+        <!-- <br/> -->
+      <!-- </div>
+    </div> -->
 
-    <?php 
+    <!-- //php      
      $sql = "SELECT * FROM `tblstore` s, `tblusers` u WHERE StoreID=UserID";
       $mydb->setQuery($sql);
-      $comp = $mydb->loadResultList();
+      $comp = $mydb->loadResultList();//
 
 
       foreach ($comp as $company ) {
         # code...
     
-    ?>
-            <div class="col-sm-4 info-blocks" style="min-height: 400px;">
+    //?>// -->
+            <!-- <div class="col-sm-4 info-blocks" style="min-height: 400px;"> -->
               <!--   <i class="icon-info-blocks fa fa-building-o"></i> -->
-               <a href="<?php echo web_root.'index.php?q=map&search='.$company->StoreID.'&lat='.$company->lat.'&lng='.$company->lng.'&address='.$company->StoreAddress;?>">
-              <div class="stretch">
-                <?php if($company->PicLoc!='') { ?>
-                   <img src="<?php echo web_root.'admin/user/'.$company->PicLoc;?>">
-                <?php }else{ ?>
-                    <img src="<?php echo web_root.'dist/img/storetempimage.jpg';?>"> 
-                <?php } ?>
+               <!-- <a href="<php echo web_root.'index.php?q=map&search='.$company->StoreID.'&lat='.$company->lat.'&lng='.$company->lng.'&address='.$company->StoreAddress;?>">
+              <div class="stretch"> -->
+                <!-- <php if($company->PicLoc!='') { ?>
+                   <img src="<php echo web_root.'admin/user/'.$company->PicLoc;?>">
+                <php }else{ ?>
+                    <img src="<php echo web_root.'dist/img/storetempimage.jpg';?>"> 
+                <php } ? -->
 
-                 </div>
+                 <!-- </div>
             
                </a>
                 <div class="info-blocks-in">
-                    <h3>   <a href="<?php echo web_root.'index.php?q=map&search='.$company->StoreID.'&lat='.$company->lat.'&lng='.$company->lng.'&address='.$company->StoreAddress;?>"><?php echo $company->StoreName;?></a></h3>
-                    <!-- <p><?php echo $company->COMPANYMISSION;?></p> -->
-                    <p><i class="fa fa-map-marker"></i> <?php echo $company->StoreAddress;?></p>
-                    <p><i class="fa fa-phone"></i> <?php echo $company->ContactNo;?></p>
+                    <h3>   <a href="<php echo web_root.'index.php?q=map&search='.$company->StoreID.'&lat='.$company->lat.'&lng='.$company->lng.'&address='.$company->StoreAddress;?>"><?php echo $company->StoreName;?></a></h3>
+                    <!-- <p><php echo $company->COMPANYMISSION;?></p> -->
+                    <!-- <p><i class="fa fa-map-marker"></i> <php echo $company->StoreAddress;?></p>
+                    <p><i class="fa fa-phone"></i> <php echo $company->ContactNo;?></p>
                 </div>
-            </div>
+            </div> -->
 
-    <?php } ?> 
+    <!-- <php } ?> 
   </div>
-    </div>
+    </div> -->
