@@ -116,9 +116,10 @@ $mydb->executeQuery();
 
     #navbar input[type=text] {
       /* float: right;*/
-      padding: 6px;
+      padding: 6px 6px 6px 12px;
       /*border: none;*/
       margin-top: 13px;
+      margin-left: 40px;
       font-size: 17px;
       height: 40px;
       border-radius: 25px;
@@ -129,6 +130,7 @@ $mydb->executeQuery();
       padding: 6px;
       /*border: none;*/
       margin-top: 12.5px;
+      margin-left: 30px;
       /*margin-right: 16px;*/
       padding: 4px;
       font-size: 17px;
@@ -166,7 +168,7 @@ $mydb->executeQuery();
 
     <!-- start header -->
     <header>
-      <div id="topbar" class="topbar navbar-fixed-top " style="padding: 0px;border-bottom: 3px solid #00bcd4; ">
+      <div id="topbar" class="topbar navbar-fixed-top " style="padding: 0px;border-bottom: 3.5px solid #00bcd4; ">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
