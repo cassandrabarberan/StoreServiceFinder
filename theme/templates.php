@@ -32,6 +32,8 @@ $mydb->executeQuery();
   <link href="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
   <link href="<?php echo web_root; ?>plugins/datepicker/datepicker3.css" rel="stylesheet" media="screen">
 
+  
+
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -346,9 +348,8 @@ $mydb->executeQuery();
                 Zamboanga City
               </address>
               <p>
-                <i class="icon-phone"></i> 09936324530 --- (DITO)<br>
-                <i class="icon-phone"></i> 09936324531 --- (DITO)<br>
-                <i class="icon-envelope-alt"></i> spoted1999@gmail.com
+                <i class="fa fa-phone"></i> 09936324530 --- (DITO)<br>
+                <i class="fa fa-envelope"></i>  storefinderzamboanga@gmail.com
               </p>
             </div>
           </div>
@@ -398,7 +399,7 @@ $mydb->executeQuery();
             <div class="col-lg-6">
               <div class="copyright">
                 <p>
-                  <span>&copy; spoted1999@gmail.com 2022 All right reserved.
+                  <span>&copy; WMSU BSCS4B G11 2022 All right reserved.
                 </p>
               </div>
             </div>

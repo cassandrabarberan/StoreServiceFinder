@@ -74,11 +74,11 @@
        var directionsService = new google.maps.DirectionsService();
       
        LatLng = {
-           lat: 6.9415, 
-           lng: 122.0585
+           lat: 6.9214, 
+           lng: 122.0790
        }; 
        map = new google.maps.Map(document.getElementById('map'), {
-           zoom: 12.5, 
+           zoom: 10.5, 
            center: LatLng
        });  
 

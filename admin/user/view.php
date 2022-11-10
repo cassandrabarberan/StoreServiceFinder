@@ -241,7 +241,7 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
         var red_icon =  'http://maps.google.com/mapfiles/ms/icons/red-dot.png' ;
         var purple_icon =  'http://maps.google.com/mapfiles/ms/icons/purple-dot.png' ;
         var locations = "";
-         LatLng = {lat:14.0940, lng: 120.6890};
+         LatLng = {lat:6.9214, lng: 122.0790};
          map = new google.maps.Map(document.getElementById('map'), {zoom: 12, center: LatLng});
         /**
          * Global marker object that holds all markers.

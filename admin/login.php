@@ -104,7 +104,7 @@ if(isset($_POST['btnLogin'])){
     //make use of the static function, and we passed to parameters
     $res = $user->userAuthentication($email, $h_upass);
     if ($res==true) { 
-       message("You logon as ".$_SESSION['ROLE'].".","success");
+       message("You logged On as ".$_SESSION['ROLE'].".","success");
       // if ($_SESSION['ROLE']=='Administrator' || $_SESSION['ROLE']=='Cashier'){
 
         $_SESSION['ADMIN_USERID'] = $_SESSION['USERID'];

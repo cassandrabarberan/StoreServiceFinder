@@ -117,10 +117,10 @@
     var directionsDisplay = null;
     var directionsService = null;
     function initialize() {
-        var myLatlng = new google.maps.LatLng(10.640739,122.968956);
+        var myLatlng = new google.maps.LatLng(6.9214,122.0790);
         var myOptions = {
             zoom: 7,
-            center: {lat:10.640739, lng:122.968956},
+            center: {lat:6.9214, lng:122.0790},
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map($("#map_canvas").get(0), myOptions);

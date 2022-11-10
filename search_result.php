@@ -2,7 +2,7 @@
 	$searchfor = (isset($_GET['searchfor']) && $_GET['searchfor'] != '') ? $_GET['searchfor'] : '';
 	
 ?>
-
+<?php error_reporting(E_ALL ^ E_NOTICE); ?>
  <style type="text/css">
   #map {
     height: 500px;
@@ -111,9 +111,46 @@
         var purple_icon =  'http://maps.google.com/mapfiles/ms/icons/purple-dot.png' ;
         var marker;
         var locations = <?php echo json_encode($data) ?>;  
-        LatLng = {lat: 6.9415, lng: 122.0585};
-         map = new google.maps.Map(document.getElementById('map'), {zoom: 12.5, center: LatLng});
- 
+      
+	 //7.08762 and the longitude is: 122.129184. zamboanga 
+	 //LatLng = {lat:7.08762, lng: 122.129184};
+								
+
+     
+	 var marker, circle;
+
+
+
+function showLocation(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  
+ // alert("CURRENT POSITION : Latitude : " + latitude + " Longitude: " + longitude);
+  ///return value
+LatLng={lat:latitude,lng:longitude};
+  
+  //TO EDIT*********
+  map = new google.maps.Map(document.getElementById('map'), {zoom: 12, center: LatLng});
+     //  map = new google.maps.Map(document.getElementById('map'), {zoom: 10, center: LatLng});
+	 var antennasCircle = new google.maps.Circle({
+      strokeColor: "#0099FF",
+      strokeOpacity: 0.8,
+      strokeWeight: 20,
+      fillColor: "#CCFF99",
+      fillOpacity: 0.6,
+      map: map,
+      center: {
+        lat: latitude,
+        lng: longitude
+      },
+      //radius: 1000 * 5//5 KM EQUAL 5000 METERS
+	  radius:  5*1000 ,
+	 
+    });
+
+    map.fitBounds(antennasCircle.getBounds());
+
+
 
         /**
          * loop through (Mysql) dynamic locations to add markers to map.
@@ -156,6 +193,37 @@
             request.open('GET', url, true);
             request.send(null);
         }
+
+}
+
+function errorHandler(err) {
+  if (err.code == 1) {
+	alert("Error: Access is denied!");
+  } else if (err.code == 2) {
+	alert("Error: Position is unavailable!");
+  }
+}
+
+function MARKLocation() {
+  if (navigator.geolocation) {
+	// timeout at 60000 milliseconds (60 seconds)
+	var options = { timeout: 60000 };
+	navigator.geolocation.getCurrentPosition(
+	  showLocation,
+	  errorHandler,
+	  options
+	);
+  } else {
+	alert("Sorry, browser does not support geolocation!");
+  }
+}
+MARKLocation();
+
+
+								
+
+
+    
 
 
     </script>

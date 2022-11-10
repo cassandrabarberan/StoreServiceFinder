@@ -109,7 +109,7 @@ function doLogin(){
     $res = $customer->CustomerAuthentication($email, $h_upass);
     if ($res==true) { 
 
-       	message("You are now successfully login!","success");
+       	message("You are now successfully logged In!","success");
        
        // $sql="INSERT INTO `tbllogs` (`USERID`,USERNAME, `LOGDATETIME`, `LOGROLE`, `LOGMODE`) 
        //    VALUES (".$_SESSION['USERID'].",'".$_SESSION['FULLNAME']."','".date('Y-m-d H:i:s')."','".$_SESSION['UROLE']."','Logged in')";
@@ -159,7 +159,7 @@ function doLogin_cart(){
     $res = $customer->CustomerAuthentication($email, $h_upass);
     if ($res==true) { 
 
-       	message("You are now successfully login!","success");
+       	message("You are now successfully logged In!","success");
        
        // $sql="INSERT INTO `tbllogs` (`USERID`,USERNAME, `LOGDATETIME`, `LOGROLE`, `LOGMODE`) 
        //    VALUES (".$_SESSION['USERID'].",'".$_SESSION['FULLNAME']."','".date('Y-m-d H:i:s')."','".$_SESSION['UROLE']."','Logged in')";
@@ -184,7 +184,7 @@ function doLogin_Rating(){
     $res = $customer->CustomerAuthentication($email, $h_upass);
     if ($res==true) { 
 
-       	message("You are now successfully login!","success");
+       	message("You are now successfully logged In!","success");
        
        // $sql="INSERT INTO `tbllogs` (`USERID`,USERNAME, `LOGDATETIME`, `LOGROLE`, `LOGMODE`) 
        //    VALUES (".$_SESSION['USERID'].",'".$_SESSION['FULLNAME']."','".date('Y-m-d H:i:s')."','".$_SESSION['UROLE']."','Logged in')";

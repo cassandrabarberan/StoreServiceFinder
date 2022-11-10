@@ -23,7 +23,7 @@
           <div class="col-md-8">
             <input name="JOBID" type="hidden" value="<?php echo $_GET['job'];?>">
              <input class="form-control input-sm" id="StoreName" name="StoreName" placeholder=
-                "Store Name" type="text" value=""  onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
+                "Store Name" type="text" value="" required  onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
           </div>
         </div>
       </div>
@@ -130,11 +130,11 @@
     </div>
 
     <label class="col-md-2 control-label" for=
-    "lng">Longhitude:</label> 
+    "lng">Longitude:</label> 
     <div class="col-md-4">
 
     <input class="form-control input-sm" id="lng" name="lng" placeholder=
-    "Longhitude" type="text" any value="" required  onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off" readonly="true"> 
+    "Longitude" type="text" any value="" required  onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off" readonly="true"> 
     </div>
 
 
@@ -161,8 +161,8 @@
         // var purple_icon =  'http://maps.google.com/mapfiles/ms/icons/purple-dot.png' ;
         // var locations = "";
 
-         LatLng = {lat:14.0940, lng: 120.6890};
-         map = new google.maps.Map(document.getElementById('map'), {zoom: 12, center: LatLng,mapTypeId:google.maps.MapTypeId.HYBRID});
+         LatLng = {lat:6.9214, lng: 122.0790}; //Zamboanga longitude and Latitude
+         map = new google.maps.Map(document.getElementById('map'), {zoom: 13, center: LatLng,mapTypeId:google.maps.MapTypeId.HYBRID});
         /**
          * Global marker object that holds all markers.
          * @type {Object.<string, google.maps.LatLng>}
