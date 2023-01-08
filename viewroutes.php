@@ -1,3 +1,5 @@
+
+
 <style type="text/css">
   #map {
     height: 500px;
@@ -78,11 +80,15 @@
 </style>
 <?php  
   $StoreID = isset($_GET['search']) ? $_GET['search'] : ""; 
-  $distance = isset($_GET['distance']) ? $_GET['distance'] : "";
+  // $distance = isset($_GET['distance']) ? $_GET['distance'] : "";
 
-?>
 
-<?php 
+if (!isset($_COOKIE['lat'])) {
+    # code...
+    echo '<script>alert("Please allow to know your location in order to proceed.")</script>';
+    redirect("index.php");
+} 
+
 
 if (isset($_POST['submitRating']) ) {
   # code...
@@ -95,7 +101,7 @@ if (isset($_POST['submitRating']) ) {
   $mydb->setQuery($sql);
   $mydb->executeQuery();
 
-   redirect(web_root.'index.php?q=singlebhouse&search='.$StoreID);
+   redirect(web_root.'index.php?q=viewroutes&search='.$StoreID);
 }
 
  if ($StoreID!="") {
@@ -104,16 +110,21 @@ if (isset($_POST['submitRating']) ) {
     $mydb->setQuery($sql);
     $store = $mydb->loadSingleResult(); 
 
+
+  $distance = distance($_COOKIE["lat"], $_COOKIE["lng"],  $store->lat,  $store->lng, 'k');
+
+
+
  ?>
  <section id="content" class="container">
-  <h2>Boarding House</h2>
+  <h2>Store</h2>
   <hr>
  <div class=""> 
 
   <div class="col-md-6"><div id="map"></div></div>
   <div class="col-md-6"> 
      <div class="stretch"> 
-         <img src="<?php echo web_root.'dist/img/'.$store->PicLoc;?>"> 
+         <img src="<?php echo web_root.'admin/user/'.$store->PicLoc;?>"> 
       </div>
        <div class="info-blocks-in">
           <h3><?php echo $store->StoreName;?></h3> 
@@ -121,7 +132,17 @@ if (isset($_POST['submitRating']) ) {
                      <p><i class="fa fa-map-marker"></i> <?php echo $store->StoreAddress;?></p>
             <p><i class="fa fa-phone"></i> <?php echo $store->ContactNo;?></p>
             <p><i class="fa fa-road"></i> <?php   echo $distance.' KM'; ?></p>
-             <p><a href="index.php?q=item&store=<?php echo $store->StoreID;?>"><i class="fa fa-list"></i> View Products</a></p>
+             <p class="col-md-6"><a  class="btn btn-primary" href="index.php?q=item&store=<?php echo $store->StoreID;?>"><i class="fa fa-list"></i> View Products</a></p>
+             <p class="col-md-6">
+     <?php if (isset($_SESSION['CustomerID'])) { ?> 
+
+                    <a class="btn btn-success" href="<?php echo web_root.'customer/index.php?view=compose&store='.$store->StoreID;?>"><i class="fa fa-envelope-o"></i> Send a Message</a>
+               <?php }else{
+                 echo '<a data-target="#myModal_SendMessage" data-toggle="modal" href="" data-id="'. $store->StoreID.'" class="btn btn-primary" id="storeID_message"><i class="fa fa-envelope-o"></i> Send a Message</a>';
+
+               } ?>
+
+              </p>
 
                 <?php  
                     $sql = "SELECT count(*) as comment, SUM(RatingNo) as Ratings FROM `tblrating` WHERE `StoreID`=".$store->StoreID. " GROUP BY StoreID;";
@@ -228,8 +249,8 @@ if (isset($_POST['submitRating']) ) {
  }   
   ?>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy4Fk3rT6aBGYr0w8HhlZr0vXSjINwHNA&libraries=places"> </script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCf6S1zyhpO7b0ullahzfdpFk1N465D7sQ&libraries=places"> </script>
 
 <script>
         /**
@@ -252,7 +273,7 @@ if (isset($_POST['submitRating']) ) {
                 var currentLongitude = position.coords.longitude;
                 LatLng ={lat:currentLatitude,lng:currentLongitude}
                 directionsDisplay = new google.maps.DirectionsRenderer(); 
-                map = new google.maps.Map(document.getElementById('map'), {zoom: 10, center: LatLng});  
+                map = new google.maps.Map(document.getElementById('map'), {zoom: 13, center: LatLng});  
  
                 for (i = 0; i < locations.length; i++) { 
                     var  start = new google.maps.LatLng(currentLatitude, currentLongitude); 
@@ -291,7 +312,12 @@ if (isset($_POST['submitRating']) ) {
         map.fitBounds(bounds);
         var request = {
             origin: start,
-            destination: end,
+            destination: end, 
+            optimizeWaypoints: false,
+            durationInTraffic: true,
+            provideRouteAlternatives: true,
+            avoidHighways: false,
+            avoidTolls: false,
             travelMode: google.maps.TravelMode.DRIVING
         };
         directionsService.route(request, function (response, status) {

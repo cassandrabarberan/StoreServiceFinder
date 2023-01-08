@@ -2,7 +2,9 @@
 	$searchfor = (isset($_GET['searchfor']) && $_GET['searchfor'] != '') ? $_GET['searchfor'] : '';
 	
 ?>
-<?php error_reporting(E_ALL ^ E_NOTICE); ?>
+
+<?php error_reporting (E_ALL ^ E_NOTICE); ?>
+
  <style type="text/css">
   #map {
     height: 500px;
@@ -147,9 +149,7 @@ LatLng={lat:latitude,lng:longitude};
 	  radius:  5*1000 ,
 	 
     });
-
     map.fitBounds(antennasCircle.getBounds());
-
 
 
         /**
@@ -218,8 +218,7 @@ function MARKLocation() {
   }
 }
 MARKLocation();
-
-
+	 
 								
 
 

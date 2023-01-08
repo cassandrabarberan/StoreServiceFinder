@@ -24,6 +24,9 @@ switch ($action) {
 	case 'loginRating' :
 	doLogin_Rating();
 	break; 
+	case 'loginMessage' :
+	doLogin_Message();
+	break; 
 
 	case 'wishlist' :
 	doWishList();
@@ -88,7 +91,7 @@ function doInsert() {
 			$user->Role				="Store";
 			$user->create();
 
-			message("You are successfully registered to the site. You can login now!","success");
+			message("You are successfully registered to the site. You can login now!", "success");
 			redirect("index.php?q=success");
 			
 		}
@@ -109,7 +112,7 @@ function doLogin(){
     $res = $customer->CustomerAuthentication($email, $h_upass);
     if ($res==true) { 
 
-       	message("You are now successfully logged In!","success");
+       	message("You are now successfully login!","success");
        
        // $sql="INSERT INTO `tbllogs` (`USERID`,USERNAME, `LOGDATETIME`, `LOGROLE`, `LOGMODE`) 
        //    VALUES (".$_SESSION['USERID'].",'".$_SESSION['FULLNAME']."','".date('Y-m-d H:i:s')."','".$_SESSION['UROLE']."','Logged in')";
@@ -159,7 +162,7 @@ function doLogin_cart(){
     $res = $customer->CustomerAuthentication($email, $h_upass);
     if ($res==true) { 
 
-       	message("You are now successfully logged In!","success");
+       	message("You are now successfully login!","success");
        
        // $sql="INSERT INTO `tbllogs` (`USERID`,USERNAME, `LOGDATETIME`, `LOGROLE`, `LOGMODE`) 
        //    VALUES (".$_SESSION['USERID'].",'".$_SESSION['FULLNAME']."','".date('Y-m-d H:i:s')."','".$_SESSION['UROLE']."','Logged in')";
@@ -184,7 +187,7 @@ function doLogin_Rating(){
     $res = $customer->CustomerAuthentication($email, $h_upass);
     if ($res==true) { 
 
-       	message("You are now successfully logged In!","success");
+       	message("You are now successfully login!","success");
        
        // $sql="INSERT INTO `tbllogs` (`USERID`,USERNAME, `LOGDATETIME`, `LOGROLE`, `LOGMODE`) 
        //    VALUES (".$_SESSION['USERID'].",'".$_SESSION['FULLNAME']."','".date('Y-m-d H:i:s')."','".$_SESSION['UROLE']."','Logged in')";
@@ -197,7 +200,31 @@ function doLogin_Rating(){
     } 
 }
 
+function doLogin_Message(){
+    $storeID = trim($_POST['StoreID']);
+	$email = trim($_POST['USERNAME']);
+	$upass  = trim($_POST['PASS']);
+	$h_upass = sha1($upass);
+ 
+  //it creates a new objects of member
+    $customer = new Customer();
+    //make use of the static function, and we passed to parameters
+    $res = $customer->CustomerAuthentication($email, $h_upass);
+    if ($res==true) { 
 
+       	message("You are now successfully login!","success");
+       
+       // $sql="INSERT INTO `tbllogs` (`USERID`,USERNAME, `LOGDATETIME`, `LOGROLE`, `LOGMODE`) 
+       //    VALUES (".$_SESSION['USERID'].",'".$_SESSION['FULLNAME']."','".date('Y-m-d H:i:s')."','".$_SESSION['UROLE']."','Logged in')";
+       //    mysql_query($sql) or die(mysql_error()); 
+ 
+         redirect(web_root."customer/index.php?view=compose&store=".$storeID);
+     
+    }else{ 
+ 
+	     echo "Account does not exist! Please contact Administrator."; 
+    } 
+}
  
  
 function UploadImage($jobid=0){

@@ -6,14 +6,15 @@
   .slides > li > img {
     width: 100%;
     height: 400px;
+    border: none;
+    
   }
-  #item > img{
+  #item > img {
     width: 100%;
     height: 4%;
   }
  
-
-  #items  img{
+  #items img {
     width: 100%;
     height:200px;
   }
@@ -50,17 +51,17 @@
 </style>
   <section id="banner">
    
-  <!-- Slider -->
-       <?php include 'slides.php';?>
-  <!-- end slider -->
+    <!-- Slider -->
+        <?php include 'slides.php';?>
+    <!-- end slider -->
  
   </section> 
-  <section id="call-to-action-2"  style="background-color:#06d5f0; padding:0px;" >
+  <section id="call-to-action-2"  style="background-color:#00bcd4; padding: 0; height: 120px;" >
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-sm-9" >
-          <h3 style="color: #ffffff">Your Store & Service Finder</h3>
-          <p style="color: #ffffff">Your Ways.</p>
+          <h2 style="color: #ffffff">Your Store Locator</h2>
+          <p style="color: #ffffff;">Your Ways.</p>
         </div>
        <!--  <div class="col-md-2 col-sm-3">
           <a href="#" class="btn btn-primary">Read More</a>
@@ -126,16 +127,16 @@
 
           ?>
         < /div>
-      < /div> 
+      < /div> -->
  
-    < /div>
-  < /section>    -->
+    </div> 
+  </section>    
  <!-- <section id="content" style="background-color: #fff; padding-top:0px;">
    <div class="container"> 
  
  <div class="row">
       <div class="col-md-12">
-        <div class="aligncenter"><h2 class="aligncenter">Products</h2>< !-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt..</div>
+        <div class="aligncenter"><h2 class="aligncenter">Products</h2><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt..</div>
         < br/>
       < /div>
     < /div>
@@ -181,27 +182,7 @@
   
   </section> -->
   
-  <section id="content-3-10" class="content-block data-section nopad content-3-10" style="margin-top:20px;">
-<div id="myCarousel" class="carousel slide" data-ride="carousel"> 
-    <!-- Wrapper for slides -->
-    <!-- <div class="carousel-inner">
-      <div  id="item" class="item active"> 
-        <img src="plugins/home-plugins/img/slides/drug.png" alt="Los Angeles" style="height: 350px;" >
-      </div> -->
 
-      <!-- <?php 
-          $sql ="SELECT * FROM tblproduct";
-          $mydb->setQuery($sql);
-          $res = $mydb->loadResultList();
-
-          foreach ($res as $row) {
-          echo '<div id="item"  class="item">
-                <img src="admin/products/'.$row->Image1.'" alt="'.$row->ProductName.'" style="height: 350px;"  >
-              </div>';
-            
-          }
-      ?>
-    </div> -->
 
     <!-- Left and right controls -->
     <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -212,14 +193,14 @@
       <span class="glyphicon glyphicon-chevron-right"></span>
       <span class="sr-only">Next</span>
     </a> -->
-  </div>
-</section>
+  <!-- </div>
+</section> -->
   
-  <div class="about home-about">
+<div class="about home-about">
 <div class="container">
   <div class="row">
       <div class="col-md-12">
-        <div class="aligncenter"><h2 class="aligncenter">Stores</h2><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt.. --></div>
+        <div class="aligncenter"><h2 class="aligncenter">Store</h2><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt.. --></div>
         <br/>
       </div>
     </div>

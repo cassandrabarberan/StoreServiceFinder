@@ -55,11 +55,11 @@
             ?>
                     <div class="col-sm-4 info-blocks" > 
                        <div class="stretch">
-                        <a href="<?php echo web_root.'index.php?q=map&search='.$store->StoreID.'&lat='.$store->lat.'&lng='.$store->lng.'&address='.$store->StoreAddress;?>">
+                        <a href="<?php echo web_root.'index.php?q=viewroutes&search='.$store->StoreID.'&lat='.$store->lat.'&lng='.$store->lng;?>">
                          <img src="<?php echo web_root.'admin/user/'.$store->PicLoc;?>">
                        </a>
                        </div>
-                       <?php echo '<a href="'.web_root.'index.php?q=map&search='.$store->StoreID.'&lat='.$store->lat.'&lng='.$store->lng.'&address='.$store->StoreAddress.'">';?>
+                          <a href="<?php echo web_root.'index.php?q=viewroutes&search='.$store->StoreID.'&lat='.$store->lat.'&lng='.$store->lng;?>">
                         <div class="info-blocks-in" style="background-color: #fff;">
                             <h3><?php echo $store->StoreName;?></h3> 
                              <p><i class="fa fa-map-marker"></i> <?php echo $store->StoreAddress;?></p>

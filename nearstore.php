@@ -1,3 +1,7 @@
+
+
+
+
 <style type="text/css">
   .stretch img {
     width: 100%;
@@ -56,19 +60,39 @@
       <script type="text/javascript">
         var directionsDisplay;
         var directionsService = new google.maps.DirectionsService();
-        if ("geolocation" in navigator) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-
-            var currentLatitude = position.coords.latitude;
-            var currentLongitude = position.coords.longitude;
-
-            lat("lat", currentLatitude, '.1');
-            lng("lng", currentLongitude, '.1');
 
 
-          });
 
-        }
+
+        
+
+//         if ("geolocation" in navigator) {
+//   navigator.geolocation.getCurrentPosition(function(position) {
+//     var currentLatitude = position.coords.latitude;
+//     var currentLongitude = position.coords.longitude;
+//     lat("lat", currentLatitude, '.1');
+//     lng("lng", currentLongitude, '.1');
+//   }, function(error) {
+//     console.log(error);
+//   });
+// }
+
+if ("geolocation" in navigator) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var currentLatitude = position.coords.latitude;
+    var currentLongitude = position.coords.longitude;
+    lat("lat", currentLatitude, '.1');
+    lng("lng", currentLongitude, '.1');
+  }, function(error) {
+    console.log(error);
+    // The user denied the request for their location
+    // You can handle this case here by displaying an error message or redirecting the user to a different page
+    alert("Sorry, we were unable to get your location. Please allow location access or enter your location manually.");
+    redirect("index.php");
+  });
+}
+
+
 
 
 
@@ -99,45 +123,63 @@
           document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
         }
       </script>
-      <?php
-      // validating cookie
-      if (!isset($_COOKIE['lat'])) {
-        # code...
-        echo '<script>alert("Please allow to know your location in order to proceed.")</script>';
-        redirect("index.php");
-      }
+  
+  <?php
+     // Check whether the lat and lng indices are set in the $_COOKIE superglobal array
+if (isset($_COOKIE['lat']) && isset($_COOKIE['lng'])) {
+  // The lat and lng indices are defined, so you can safely access their values
+  $lat = $_COOKIE['lat'];
+  $lng = $_COOKIE['lng'];
+  // Use the $lat and $lng variables in your code as needed
+}
+//  else {
+//   // The lat and lng indices are not defined, so you should set default values for them
+//   $lat = 0;
+//   $lng = 0;
+// }
+
       ?>
-      <?php
-      // validating cookie
-      // if (!isset($_COOKIE['lat'])) {
-      //   # code...
-      //   redirect("index.php?q=nearstore");
-      // }
-      ?>
+    
 
       <?php
+
+global $lat, $long;
+
+      
       $listDistance = array();
       $sql = "SELECT * FROM `tblstore` s, `tblusers` u WHERE StoreID=UserID";
       $mydb->setQuery($sql);
-      $store = $mydb->loadResultList();
+      $store = $mydb->loadResultList();//storing the data to store varaible from database
 
       foreach ($store as $nearstore) {
 
-
         // echo '<i class="fa fa-road"></i> '.distance($_COOKIE["cookie_lat"], $_COOKIE["cookie_lng"],  $nearstore->lat,  $nearstore->lng, 'k').' KM <br/>'; 
+//this below is the distance formula or functions,$nearstore->lat read as get the value of lat in nearstore variable 
+if (isset($_COOKIE['lat']) && isset($_COOKIE['lng'])) {
+  // access the elements of the array
+  $distance = distance($_COOKIE['lat'], $_COOKIE['lng'], $nearstore->lat, $nearstore->lng, 'k');
 
+}
 
-
-        $distance = distance($_COOKIE["lat"], $_COOKIE["lng"],  $nearstore->lat,  $nearstore->lng, 'k');
+global $distance;
 
         $dis  = array($distance, $nearstore->StoreID);
+        //result example are distance measure from the point origin to the store location
+    //reults example//Array ( [0] => 927.41 [1] => 2104 ) 1
+//Array ( [0] => 929.49 [1] => 2117 ) 1
+//Array ( [0] => 927.08 [1] => 2118 ) 1
+    
+ 
+		
         array_push($listDistance, $dis);
       }
 
-      sort($listDistance);
+      sort($listDistance);//from nearest disctance to the farthest one
 
       $max = count($listDistance);
       //  print_r($listDistance);
+      //$listDistance[$key][1] stand for storeID found in nearstore
+      //$listDistance[$key][0] distance calculate from current position to the nearstore
 
       // echo "KM".$listDistance[0][0].": ID: ".$listDistance[0][1].".<br>";
       // echo "KM".$listDistance[1][0].": ID: ".$listDistance[1][1].".<br>";
@@ -151,8 +193,8 @@
         $sql = "SELECT * FROM `tblstore` s, `tblusers` u WHERE StoreID=UserID AND  StoreID= '" . $listDistance[$key][1] . "' ";
         $mydb->setQuery($sql);
         $res = $mydb->loadSingleResult();
+        //puting those data only the $listDistance[$key][1] in the mydb 
       ?>
-
 
 
         <?php ob_start(); ?>

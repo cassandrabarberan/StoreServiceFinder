@@ -55,7 +55,7 @@
  ?>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy4Fk3rT6aBGYr0w8HhlZr0vXSjINwHNA&libraries=places"> </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCf6S1zyhpO7b0ullahzfdpFk1N465D7sQ&libraries=places"> </script>
 
 <script>
        /**
@@ -72,13 +72,10 @@
        // for current location
        var directionsDisplay;
        var directionsService = new google.maps.DirectionsService();
-      
-       LatLng = {
-           lat: 6.9214, 
-           lng: 122.0790
-       }; 
+       //zamboanga 6.9214° N, 122.0790° E
+       LatLng = { lat: 6.9215, lng: 122.0790 }; 
        map = new google.maps.Map(document.getElementById('map'), {
-           zoom: 10.5, 
+           zoom: 13, 
            center: LatLng
        });  
 
@@ -118,11 +115,15 @@
                                  var currentLongitude = position.coords.longitude;
                                  LatLng ={lat:currentLatitude,lng:currentLongitude}
                                  directionsDisplay = new google.maps.DirectionsRenderer(); 
-                                 map = new google.maps.Map(document.getElementById('map'), {zoom: 10, center: LatLng});  
+                                 map = new google.maps.Map(document.getElementById('map'), {
+                                   zoom: 10, 
+                                   center: LatLng
+                               });  
                   
                                  for (i = 0; i < locations.length; i++) { 
                                      var  start = new google.maps.LatLng(currentLatitude, currentLongitude); 
-                                     var end = new google.maps.LatLng(locations[i][2], locations[i][3]);
+                                     //var end = new google.maps.LatLng(locations[i][2], locations[i][3]);
+                                     var end = new google.maps.LatLng(6.9214, 122.0790);
 
 
                                      calcRoute(start,end)

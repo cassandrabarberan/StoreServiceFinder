@@ -79,8 +79,8 @@ if (isset($_GET['product'])) {
 </section>
 
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy4Fk3rT6aBGYr0w8HhlZr0vXSjINwHNA&libraries=places"> </script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCf6S1zyhpO7b0ullahzfdpFk1N465D7sQ&libraries=places"> </script>
 
 <script>
         /**
@@ -142,7 +142,12 @@ if (isset($_GET['product'])) {
         map.fitBounds(bounds);
         var request = {
             origin: start,
-            destination: end,
+            destination: end, 
+            optimizeWaypoints: false,
+            durationInTraffic: true,
+            provideRouteAlternatives: true,
+            avoidHighways: false,
+            avoidTolls: false,
             travelMode: google.maps.TravelMode.DRIVING
         };
         directionsService.route(request, function (response, status) {
